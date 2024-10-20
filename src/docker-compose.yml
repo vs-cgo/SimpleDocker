@@ -1,0 +1,15 @@
+version: "3.3"
+services:
+  webapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: container1:part6
+    container_name: webapp
+  nginx:
+    image: "nginx:latest"
+    container_name: nginx
+    ports:
+      - "80:8080"
+    volumes:
+      - "./nginx/nginx1.conf:/etc/nginx/nginx.conf"
